@@ -59,14 +59,15 @@ export class AxesDrawer {
         x - tickLabelPadding,
         h / 2 + 2 * tickLabelPadding
       );
-    }
+      ctx.strokeStyle = 'blue';
+      ctx.stroke
 
     // Draw y-axis
     ctx.beginPath();
     ctx.moveTo(width / 2, axisPadding);
     ctx.lineTo(width / 2, height - axisPadding);
-    ctx.stroke();
-
+    ctx.strokeStyle = 'green';
+    ctx.stroke
     // Draw y-axis ticks and labels
     for (
       let y: number = axisPadding + tickInterval;

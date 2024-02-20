@@ -38,19 +38,22 @@ export class AxesDrawer {
             ctx.lineTo(x, h / 2 + tickSize);
             ctx.stroke();
             ctx.fillText((x - w / 2).toString(), x - tickLabelPadding, h / 2 + 2 * tickLabelPadding);
-        }
-        // Draw y-axis
-        ctx.beginPath();
-        ctx.moveTo(width / 2, axisPadding);
-        ctx.lineTo(width / 2, height - axisPadding);
-        ctx.stroke();
-        // Draw y-axis ticks and labels
-        for (let y = axisPadding + tickInterval; y < height - axisPadding; y += tickInterval) {
+            ctx.strokeStyle = 'blue';
+            ctx.stroke;
+            // Draw y-axis
             ctx.beginPath();
-            ctx.moveTo(width / 2 - tickSize, y);
-            ctx.lineTo(width / 2 + tickSize, y);
-            ctx.stroke();
-            ctx.fillText((height / 2 - y).toString(), width / 2 - 3 * tickLabelPadding, y + tickLabelPadding);
+            ctx.moveTo(width / 2, axisPadding);
+            ctx.lineTo(width / 2, height - axisPadding);
+            ctx.strokeStyle = 'green';
+            ctx.stroke;
+            // Draw y-axis ticks and labels
+            for (let y = axisPadding + tickInterval; y < height - axisPadding; y += tickInterval) {
+                ctx.beginPath();
+                ctx.moveTo(width / 2 - tickSize, y);
+                ctx.lineTo(width / 2 + tickSize, y);
+                ctx.stroke();
+                ctx.fillText((height / 2 - y).toString(), width / 2 - 3 * tickLabelPadding, y + tickLabelPadding);
+            }
         }
     }
 }

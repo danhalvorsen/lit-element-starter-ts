@@ -43,7 +43,7 @@ export class VectorFieldPlotter extends LitElement {
 
     // Adjust the scale based on scroll direction
     if (delta > 0) {
-      this.scale *= 2.0; // Zoom in
+      this.scale *= 3.0; // Zoom in
     } else {
       this.scale *= 0.1; // Zoom out
     }
@@ -81,6 +81,9 @@ export class VectorFieldPlotter extends LitElement {
           ctx!.moveTo(x, y);
           ctx!.lineTo(x + vector.x, y + vector.y);
           ctx!.strokeStyle = 'black';
+          ctx!.stroke();
+          ctx!.strokeStyle = '#ff0000';
+          ctx!.strokeStyle
           ctx!.stroke();
         }
       }
