@@ -5,8 +5,8 @@ import {AxesDrawer} from './axisDrawer'; // Make sure the path to axisDrawer is 
 @customElement('vector-canvas')
 export class VectorFieldPlotter extends LitElement {
   private axes: AxesDrawer | undefined = new AxesDrawer(); // Instantiate AxesDrawer
-
   private scale = 1.0;
+  private animationFrameId: number | undefined;
 
   static override readonly styles = css`
     :host {
@@ -27,13 +27,27 @@ export class VectorFieldPlotter extends LitElement {
     super.connectedCallback();
     this.addEventListener('wheel', this.handleMouseWheel);
     this.redraw(); // Ensure canvas is drawn initially
+    this.startAnimationLoop();
   }
 
   override disconnectedCallback() {
     super.disconnectedCallback();
     this.removeEventListener('wheel', this.handleMouseWheel);
+    this.stopAnimationLoop();
+  }
+  private startAnimationLoop(): void {
+    const animate = () => {
+      this.redraw();
+      this.animationFrameId = window.requestAnimationFrame(animate);
+    };
+    animate();
   }
 
+  private stopAnimationLoop(): void {
+    if (this.animationFrameId) {
+      window.cancelAnimationFrame(this.animationFrameId);
+    }
+  }
   private handleMouseWheel(event: WheelEvent): void {
     // Determine the direction of the scroll
     const delta: number = Math.max(
@@ -82,8 +96,8 @@ export class VectorFieldPlotter extends LitElement {
           ctx!.lineTo(x + vector.x, y + vector.y);
           ctx!.strokeStyle = 'black';
           ctx!.stroke();
-          ctx!.strokeStyle = '#ff0000';
-          ctx!.strokeStyle
+          ctx!.strokeStyle = '#ff00ff';
+          ctx!.strokeStyle;
           ctx!.stroke();
         }
       }
@@ -91,14 +105,24 @@ export class VectorFieldPlotter extends LitElement {
 
     // Define vector field function
     function rotationalVectorField(
-      x: number,
-      y: number
+      _x: number,
+      _y: number
     ): {x: number; y: number} {
-      const angle = Math.atan2(y - canvas!.height / 2, x - canvas!.width / 2);
-      const magnitude = 5;
-      const dx = magnitude * Math.cos(angle);
-      const dy = magnitude * Math.sin(angle);
-      return {x: dx, y: dy};
+      if (canvas) {
+        const seconds = new Date().getMilliseconds();
+
+        const angle = Math.atan2(
+          _y * seconds * 10 - canvas.height / 2,
+          _x * seconds * 10 - canvas.width / 2
+        );
+
+        const magnitude = 10;
+        const dx = magnitude * Math.cos(angle * seconds);
+        const dy = magnitude * Math.sin(angle * seconds);
+        console.log(`angle: ${angle}, dx: ${dx}, dy: ${dy}`);
+        return {x: dx, y: dy};
+      }
+      return {x: 0, y: 0};
     }
 
     // Plot vector field

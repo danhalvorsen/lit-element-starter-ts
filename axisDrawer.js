@@ -18,14 +18,15 @@ export class AxesDrawer {
     drawAxes(ctx, width, height) {
         if (this.ctx === undefined ||
             this.height === undefined ||
-            this.width === undefined)
+            this.width === undefined) {
             return;
+        }
         const w = this.width;
         const h = this.height;
-        const axisPadding = 10;
-        const tickSize = 105;
-        const tickInterval = 10;
-        const tickLabelPadding = 10;
+        const axisPadding = 0;
+        const axisLength = 200;
+        const tickInterval = 50;
+        const tickLabelPadding = 0;
         // Draw x-axis
         ctx.beginPath();
         ctx.moveTo(axisPadding, h / 2);
@@ -34,23 +35,23 @@ export class AxesDrawer {
         // Draw x-axis ticks and labels
         for (let x = axisPadding + tickInterval; x < w - axisPadding; x += tickInterval) {
             ctx.beginPath();
-            ctx.moveTo(x, h / 2 - tickSize);
-            ctx.lineTo(x, h / 2 + tickSize);
+            ctx.moveTo(x, h / 2 - axisLength);
+            ctx.lineTo(x, h / 2 + axisLength);
             ctx.stroke();
             ctx.fillText((x - w / 2).toString(), x - tickLabelPadding, h / 2 + 2 * tickLabelPadding);
-            ctx.strokeStyle = 'blue';
-            ctx.stroke;
+            ctx.strokeStyle = 'lightblue';
+            ctx.stroke();
             // Draw y-axis
             ctx.beginPath();
             ctx.moveTo(width / 2, axisPadding);
             ctx.lineTo(width / 2, height - axisPadding);
-            ctx.strokeStyle = 'green';
-            ctx.stroke;
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
             // Draw y-axis ticks and labels
             for (let y = axisPadding + tickInterval; y < height - axisPadding; y += tickInterval) {
                 ctx.beginPath();
-                ctx.moveTo(width / 2 - tickSize, y);
-                ctx.lineTo(width / 2 + tickSize, y);
+                ctx.moveTo(width / 2 - axisLength, y);
+                ctx.lineTo(width / 2 + axisLength, y);
                 ctx.stroke();
                 ctx.fillText((height / 2 - y).toString(), width / 2 - 3 * tickLabelPadding, y + tickLabelPadding);
             }

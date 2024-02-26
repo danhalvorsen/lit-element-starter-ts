@@ -12,4 +12,4 @@ export declare class VectorFieldPlotter extends LitElement {
     private handleMouseWheel;
     private redraw;
 }
-//# sourceMappingURL=vectorfield.d.ts.map
+//# sourceMappingURL=VectorFieldPlotter.d.ts.map

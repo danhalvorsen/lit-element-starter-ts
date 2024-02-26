@@ -85,10 +85,11 @@ let VectorFieldPlotter = class VectorFieldPlotter extends LitElement {
         function rotationalVectorField(_x, _y) {
             if (canvas) {
                 const seconds = new Date().getMilliseconds();
-                const angle = Math.atan2(_y * seconds * 10 - canvas.height / 2, _x * seconds * 10 - canvas.width / 2);
+                //const angle = Math.atan2(y - canvas.height / 5, x - canvas.width / 5);
+                const angle = ((2 * Math.PI) / 5) * seconds;
                 const magnitude = 10;
-                const dx = magnitude * Math.cos(angle * seconds);
-                const dy = magnitude * Math.sin(angle * seconds);
+                const dx = magnitude * Math.cos(angle);
+                const dy = magnitude * Math.sin(angle);
                 console.log(`angle: ${angle}, dx: ${dx}, dy: ${dy}`);
                 return { x: dx, y: dy };
             }
@@ -112,4 +113,4 @@ VectorFieldPlotter = __decorate([
     customElement('vector-canvas')
 ], VectorFieldPlotter);
 export { VectorFieldPlotter };
-//# sourceMappingURL=vectorfield.js.map
+//# sourceMappingURL=VectorFieldPlotter.js.map
