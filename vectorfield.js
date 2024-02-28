@@ -7,13 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { AxesDrawer } from './axisDrawer'; // Make sure the path to axisDrawer is correct
-import { MyController } from './test/myPlacements';
+import { MyPlacementController } from './MyPlacementController';
 let VectorFieldPlotter = class VectorFieldPlotter extends LitElement {
+    /**
+     *
+     */
     constructor() {
-        super(...arguments);
+        super();
         this.axes = new AxesDrawer(); // Instantiate AxesDrawer
         this.scale = 1.0;
-        this.placement = new MyController(this);
+        this.placementController = new MyPlacementController(this);
     }
     render() {
         return html `<canvas id="vectorFieldCanvas"></canvas>`;
