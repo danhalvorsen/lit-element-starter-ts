@@ -16,7 +16,7 @@ let VectorFieldPlotter = class VectorFieldPlotter extends LitElement {
         super();
         this.axes = new AxesDrawer(); // Instantiate AxesDrawer
         this.scale = 1.0;
-        this.placementController = new MyPlacementController(this);
+        this.placement = new MyController(this);
     }
     render() {
         return html `<canvas id="vectorFieldCanvas"></canvas>`;
