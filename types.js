@@ -1,4 +1,4 @@
-import { vec3 } from '/src/lib/tsm/dist/tsm.js';
+import Vector2D from './vector2D';
 export class Point {
     getPoint() {
         return this.p;
@@ -7,16 +7,13 @@ export class Point {
         this.p = v;
     }
     x() {
-        return this.p[0];
+        return this.p.x;
     }
     y() {
-        return this.p[1];
+        return this.p.y;
     }
-    z() {
-        return this.p[2];
-    }
-    constructor(x, y, z) {
-        this.p = new vec3([x, y, z]);
+    constructor(x, y) {
+        this.p = new Vector2D(x, y);
     }
 }
 export class Line {

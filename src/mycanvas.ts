@@ -1,9 +1,12 @@
-import {LitElement, html} from 'lit';
+import {LitElement, TemplateResult, html} from 'lit';
 import {property, query} from 'lit/decorators.js';
-import {fetchCanvasById} from './getCanvas';
+import {CanvasFragment} from './getCanvas';
 import {tCanvasRenderingContext2D} from './types';
+import {MyPlacementController} from './MyPlacementController';
 
 export class MyCanvas extends LitElement {
+  private placement = new MyPlacementController(this);
+
   @query('canvas') canvas!: HTMLCanvasElement;
 
   @property({type: Number})
@@ -14,20 +17,9 @@ export class MyCanvas extends LitElement {
 
   canvasId = 'canvasWithId';
 
-  fetchCanvas(id: string): tCanvasRenderingContext2D {
-    return fetchCanvasById(this, id);
+  DrawMainPart(): tCanvasRenderingContext2D {
+    return CanvasFragment(this, this.canvas);
   }
 
-  override render() {
-    this.fetchCanvas(this.canvasId);
-    if (this.canvas !== null || this.canvas !== undefined) {
-      return html`
-        <main class="full-size">
-          <canvas id="this.canvasId" class="full-size"></canvas> //
-          <div id="children" class="full-size"></div>
-          <slot></slot>
-        </main>
-      `;
-    } else return html`<h2>Error</h2>`;
-  }
+  override render(): {};
 }

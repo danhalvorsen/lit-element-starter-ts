@@ -4,32 +4,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { LitElement, html } from 'lit';
+import { LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { fetchCanvasById } from './getCanvas';
+import { CanvasFragment } from './getCanvas';
+import { MyPlacementController } from './MyPlacementController';
 export class MyCanvas extends LitElement {
     constructor() {
         super(...arguments);
+        this.placement = new MyPlacementController(this);
         this.width = 0;
         this.height = 0;
         this.canvasId = 'canvasWithId';
     }
-    fetchCanvas(id) {
-        return fetchCanvasById(this, id);
-    }
-    render() {
-        this.fetchCanvas(this.canvasId);
-        if (this.canvas !== null || this.canvas !== undefined) {
-            return html `
-        <main class="full-size">
-          <canvas id="this.canvasId" class="full-size"></canvas> //
-          <div id="children" class="full-size"></div>
-          <slot></slot>
-        </main>
-      `;
-        }
-        else
-            return html `<h2>Error</h2>`;
+    DrawMainPart() {
+        return CanvasFragment(this, this.canvas);
     }
 }
 __decorate([

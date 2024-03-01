@@ -9,7 +9,7 @@ export class VectorFieldPlotter extends LitElement {
   private axes: AxesDrawer | undefined = new AxesDrawer(); // Instantiate AxesDrawer
   private scale = 1.0;
   private animationFrameId: number | undefined;
-  private placement = new MyController(this);
+  private placement = new MyPlacementController(this);
 
   /**
    *

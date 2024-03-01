@@ -1,4 +1,4 @@
-import {vec3} from '/src/lib/tsm/dist/tsm.js';
+import Vector2D from './vector2D';
 
 export type tCanvasRenderingContext2D =
   | CanvasRenderingContext2D
@@ -6,27 +6,24 @@ export type tCanvasRenderingContext2D =
   | null;
 
 export class Point {
-  p: vec3;
+  p: Vector2D;
 
-  public getPoint(): vec3 {
+  public getPoint(): Vector2D {
     return this.p;
   }
-  public setPoint(v: vec3) {
+  public setPoint(v: Vector2D) {
     this.p = v;
   }
 
-  public x(): vec3 {
-    return this.p[0];
+  public x(): number {
+    return this.p.x;
   }
-  public y(): vec3 {
-    return this.p[1];
-  }
-  public z(): vec3 {
-    return this.p[2];
+  public y(): number {
+    return this.p.y;
   }
 
-  constructor(x: number, y: number, z: number) {
-    this.p = new vec3([x, y, z]);
+  constructor(x: number, y: number) {
+    this.p = new Vector2D(x, y);
   }
 }
 

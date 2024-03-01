@@ -1,13 +1,10 @@
 import {LitElement} from 'lit';
 import {tCanvasRenderingContext2D} from './types';
 
-export function fetchCanvasById(
+export function DrawFragment(
   element: LitElement,
-  canvasId: string
+  canvas: HTMLCanvasElement
 ): tCanvasRenderingContext2D {
-  const canvas = element.shadowRoot?.getElementById(
-    canvasId
-  ) as HTMLCanvasElement | null;
   if (!canvas) return undefined;
 
   const ctx = canvas.getContext('2d');
@@ -16,4 +13,8 @@ export function fetchCanvasById(
   // Clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   return ctx;
+}
+
+export function rectangleTemplate() {
+  return html`<header>${this.article.title}</header>`;
 }

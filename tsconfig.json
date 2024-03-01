@@ -30,5 +30,5 @@
     "types": ["mocha"]
   },
   "include": ["src/**/*.ts"],
-  "exclude": []
+  "exclude": ["src/lib/**/*.ts", "src/test/**/*.ts"]
 }

@@ -1,5 +1,4 @@
-export function fetchCanvasById(element, canvasId) {
-    const canvas = element.shadowRoot?.getElementById(canvasId);
+export function DrawFragment(element, canvas) {
     if (!canvas)
         return undefined;
     const ctx = canvas.getContext('2d');
@@ -8,5 +7,8 @@ export function fetchCanvasById(element, canvasId) {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     return ctx;
+}
+export function rectangleTemplate() {
+    return html `<header>${this.article.title}</header>`;
 }
 //# sourceMappingURL=getCanvas.js.map

@@ -4,6 +4,7 @@ export declare class VectorFieldPlotter extends LitElement {
     private axes;
     private scale;
     private animationFrameId;
+    private placement;
     /**
      *
      */
