@@ -9,14 +9,28 @@ export class Point {
   p: Vector2D;
 
   public getPoint(): Vector2D {
-    return this.p;
+    if (this.p !== null) {
+      return this.p;
+    }
+    throw new Error('');
   }
   public setPoint(v: Vector2D) {
     this.p = v;
   }
 
+  private _value = 0;
+  public get value(): number {
+    return this._value;
+  }
+  public set value(v: number) {
+    this._value = v;
+  }
+
   public x(): number {
-    return this.p.x;
+    if (this?.p?.x !== null || this?.p?.x !== undefined) {
+      return this.p.x;
+    }
+    throw new Error('null error');
   }
   public y(): number {
     return this.p.y;

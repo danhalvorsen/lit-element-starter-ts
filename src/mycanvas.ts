@@ -1,7 +1,5 @@
-import {LitElement, TemplateResult, html} from 'lit';
+import {LitElement} from 'lit';
 import {property, query} from 'lit/decorators.js';
-import {CanvasFragment} from './getCanvas';
-import {tCanvasRenderingContext2D} from './types';
 import {MyPlacementController} from './MyPlacementController';
 
 export class MyCanvas extends LitElement {
@@ -16,10 +14,4 @@ export class MyCanvas extends LitElement {
   height = 0;
 
   canvasId = 'canvasWithId';
-
-  DrawMainPart(): tCanvasRenderingContext2D {
-    return CanvasFragment(this, this.canvas);
-  }
-
-  override render(): {};
 }

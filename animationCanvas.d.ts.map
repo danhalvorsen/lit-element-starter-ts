@@ -1,0 +1,1 @@
+{"version":3,"file":"animationCanvas.d.ts","sourceRoot":"","sources":["src/animationCanvas.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,UAAU,EAAY,MAAM,KAAK,CAAC;AAG1C,qBACa,eAAgB,SAAQ,UAAU;IAC7C,OAAO,CAAC,gBAAgB,CAAqB;IAM7C,kBAAkB,IAAI,IAAI;IAQ1B,iBAAiB,IAAI,IAAI;CAK1B;AAGD,qBACa,aAAc,SAAQ,UAAU;IAGlC,gBAAgB;IAIzB,MAAM,IAAI,IAAI;CAmBf"}

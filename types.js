@@ -1,18 +1,31 @@
 import Vector2D from './vector2D';
 export class Point {
     getPoint() {
-        return this.p;
+        if (this.p !== null) {
+            return this.p;
+        }
+        throw new Error('');
     }
     setPoint(v) {
         this.p = v;
     }
+    get value() {
+        return this._value;
+    }
+    set value(v) {
+        this._value = v;
+    }
     x() {
-        return this.p.x;
+        if (this?.p?.x !== null || this?.p?.x !== undefined) {
+            return this.p.x;
+        }
+        throw new Error('null error');
     }
     y() {
         return this.p.y;
     }
     constructor(x, y) {
+        this._value = 0;
         this.p = new Vector2D(x, y);
     }
 }

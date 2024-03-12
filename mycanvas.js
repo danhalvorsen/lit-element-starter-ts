@@ -6,7 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { CanvasFragment } from './getCanvas';
 import { MyPlacementController } from './MyPlacementController';
 export class MyCanvas extends LitElement {
     constructor() {
@@ -15,9 +14,6 @@ export class MyCanvas extends LitElement {
         this.width = 0;
         this.height = 0;
         this.canvasId = 'canvasWithId';
-    }
-    DrawMainPart() {
-        return CanvasFragment(this, this.canvas);
     }
 }
 __decorate([

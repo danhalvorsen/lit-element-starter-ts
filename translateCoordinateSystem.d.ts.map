@@ -1,1 +1,1 @@
-{"version":3,"file":"translateCoordinateSystem.d.ts","sourceRoot":"","sources":["src/translateCoordinateSystem.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,SAAS,CAAC;AAChC,eAAO,MAAM,yBAAyB,MAAO,KAAK,OAAO,wBAAwB,SAOhF,CAAC"}
+{"version":3,"file":"translateCoordinateSystem.d.ts","sourceRoot":"","sources":["src/translateCoordinateSystem.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,KAAK,EAAC,MAAM,SAAS,CAAC;AAC9B,eAAO,MAAM,yBAAyB,MACjC,KAAK,OACH,wBAAwB,SAQ9B,CAAC"}

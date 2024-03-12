@@ -12,7 +12,7 @@ export class DrawGraphController implements ReactiveController {
   }
 
   hostConnected?(): void {
-    console.log()
+    console.log();
     //Draw margin
     //Translate the coordinatesystem to left bottom
     //Draw Border
