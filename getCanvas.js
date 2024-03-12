@@ -1,4 +1,5 @@
-export function DrawFragment(element, canvas) {
+import { html } from 'lit';
+export function DrawFragment(canvas) {
     if (!canvas)
         return undefined;
     const ctx = canvas.getContext('2d');
@@ -9,6 +10,6 @@ export function DrawFragment(element, canvas) {
     return ctx;
 }
 export function rectangleTemplate() {
-    return html `<header>${this.article.title}</header>`;
+    return html `<header>${'size'}</header>`;
 }
 //# sourceMappingURL=getCanvas.js.map
