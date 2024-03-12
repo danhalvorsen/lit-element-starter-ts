@@ -4,6 +4,9 @@ export declare class Point {
     p: Vector2D;
     getPoint(): Vector2D;
     setPoint(v: Vector2D): void;
+    private _value;
+    get value(): number;
+    set value(v: number);
     x(): number;
     y(): number;
     constructor(x: number, y: number);

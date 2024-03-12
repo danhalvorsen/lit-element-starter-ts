@@ -130,7 +130,7 @@ export class VectorFieldPlotter extends LitElement {
         const magnitude = 10;
         const dx = magnitude * Math.cos(angle * seconds);
         const dy = magnitude * Math.sin(angle * seconds);
-        console.log(`angle: ${angle}, dx: ${dx}, dy: ${dy}`);
+        //console.log(`angle: ${angle}, dx: ${dx}, dy: ${dy}`);
         return {x: dx, y: dy};
       }
       return {x: 0, y: 0};

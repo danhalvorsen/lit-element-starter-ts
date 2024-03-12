@@ -9,6 +9,9 @@
         <script type="module" src="../canvas.js"></script>
         <script type="module" src="../vectorfield.js"></script>
         <script type="module" src="../MyPlacementController.js"></script>
+        <script type="module" src="../wc-newcanvas.js"></script>
+        <script type="module" src="../animationCanvas.js"></script>
+        <script type="module" src="../types.js"></script>
         <style>
       p {
         border: solid 1px blue;
@@ -17,6 +20,11 @@
         </style>
     </head>
     <body>
+        <vector-canvas id="newcanvas2">
+            <wc-newcanvas></wc-newcanvas>
+            <animation-canvas></animation-canvas>
+            <canvas-drawer></canvas-drawer>
+        </vector-canvas>
         <css-canvas>
             <img
                 src="https://lit.dev/images/logo.svg"
