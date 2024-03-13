@@ -74,3 +74,5 @@ export class DrawingCanvas extends LitElement {
     ctx.fillRect(30, 30, 50, 50);
   }
 }
+
+
