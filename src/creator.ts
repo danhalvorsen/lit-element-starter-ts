@@ -2,7 +2,7 @@ import {Point} from './types';
 
 interface Product {
   parts: ReadonlyArray<Product>;
-  operation(): ReadonlyArray<Product>;
+  operation(): Array<Product>;
 }
 abstract class Creator {
   public abstract factoryMethod(): Product;
@@ -34,13 +34,11 @@ class LineProduct implements Product {
   /**
    *
    */
-  constructor(p0: Point, p1: Point) {
+  constructor(_p0: Point, _p1: Point, _cdx: CanvasRenderingContext2D) {
     this.parts = new Array<Product>();
-    this.p0 = p0;
-    this.p1 = p1;
   }
 
-  operation(): readonly Product[] {
-    throw new Error('Method not implemented.');
+  operation(): Array<Product> {
+    return this.parts;
   }
 }

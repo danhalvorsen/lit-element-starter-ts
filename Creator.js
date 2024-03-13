@@ -21,13 +21,11 @@ class LineProduct {
     /**
      *
      */
-    constructor(p0, p1) {
+    constructor(_p0, _p1, _cdx) {
         this.parts = new Array();
-        this.p0 = p0;
-        this.p1 = p1;
     }
     operation() {
-        throw new Error('Method not implemented.');
+        return this.parts;
     }
 }
 export {};

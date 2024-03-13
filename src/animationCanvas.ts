@@ -62,7 +62,7 @@ export class DrawingCanvas extends LitElement {
       return;
     }
 
-    const ctx = canvas.getContext('2d');
+    const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
     if (!ctx) {
       return;
     }
@@ -74,5 +74,3 @@ export class DrawingCanvas extends LitElement {
     ctx.fillRect(30, 30, 50, 50);
   }
 }
-
-
