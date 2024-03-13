@@ -4,21 +4,34 @@ import {customElement, property} from 'lit/decorators.js';
 @customElement('animation-canvas')
 export class AnimationCanvas extends LitElement {
   private animationFrameId: number | undefined;
-
+  private drawingCanvas: DrawingCanvas | undefined;
   // override createRenderRoot() {
   //   return this;
   // }
+
+  /**
+   *
+   */
+  constructor(drawingCanvas: DrawingCanvas) {
+    super();
+    this.drawingCanvas = drawingCanvas;
+  }
 
   startAnimationLoop(): void {
     const animate = () => {
       // animation logic
       this.animationFrameId = window.requestAnimationFrame(animate);
+      console.log(`starting animation loop:${this.animationFrameId}`);
+      if (this.drawingCanvas !== null && this.drawingCanvas !== undefined) {
+        this.drawingCanvas.redraw();
+      }
     };
     animate();
   }
 
   stopAnimationLoop(): void {
     if (this.animationFrameId) {
+      console.log('stopping animation loop');
       window.cancelAnimationFrame(this.animationFrameId);
     }
   }
@@ -29,16 +42,23 @@ export class AnimationCanvas extends LitElement {
 export class DrawingCanvas extends LitElement {
   // methods related to canvas drawing
 
-  override createRenderRoot() {
-    return this;
+  override render() {
+    return html` <canvas id="newcanvas2"></canvas> `;
   }
+  // override createRenderRoot() {
+  //   return this;
+  // }
 
+  override firstUpdated() {
+    this.redraw();
+  }
   redraw(): void {
     const canvas = this.shadowRoot?.getElementById(
       'newcanvas2'
     ) as HTMLCanvasElement | null;
 
     if (canvas === null || canvas === undefined) {
+      console.log('no canvas element found');
       return;
     }
 
@@ -46,6 +66,7 @@ export class DrawingCanvas extends LitElement {
     if (!ctx) {
       return;
     }
+
     ctx.fillStyle = 'rgb(200 0 0)';
     ctx.fillRect(10, 10, 50, 50);
 

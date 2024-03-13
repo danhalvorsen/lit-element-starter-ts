@@ -13,13 +13,14 @@ let NewCanvas = class NewCanvas extends LitElement {
      */
     constructor() {
         super();
-        this.canvasId = 'thecanvas';
-        this.animationCanvas = new AnimationCanvas();
+        this.canvasId = 'newcanvas2';
         this.drawingCanvas = new DrawingCanvas();
+        this.animationCanvas = new AnimationCanvas(this.drawingCanvas);
     }
     connectedCallback() {
         super.connectedCallback();
-        this.drawingCanvas.redraw(); // Ensure canvas is drawn initially
+        // Ensure canvas is drawn
+        this.drawingCanvas.redraw();
         this.animationCanvas.startAnimationLoop();
     }
     disconnectedCallback() {
@@ -29,12 +30,10 @@ let NewCanvas = class NewCanvas extends LitElement {
     }
     render() {
         return html `
-      <canvas id="newcanvas2">
-        <h1>TEST</h1>
-      </canvas>
-
-      <animation-canvas></animation-canvas>
-      <canvas-drawer></canvas-drawer>
+      <div>
+        <animation-canvas></animation-canvas>
+        <canvas-drawer> </canvas-drawer>
+      </div>
     `;
     }
 };

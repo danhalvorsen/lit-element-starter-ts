@@ -7,14 +7,14 @@ export class NewCanvas extends LitElement {
   private animationCanvas: AnimationCanvas;
   private drawingCanvas: DrawingCanvas;
   private animationFrameId: number | undefined;
-  private canvasId = 'thecanvas';
+  private canvasId = 'newcanvas2';
   /**
    *
    */
   constructor() {
     super();
-    this.animationCanvas = new AnimationCanvas();
     this.drawingCanvas = new DrawingCanvas();
+    this.animationCanvas = new AnimationCanvas(this.drawingCanvas);
   }
 
   static override readonly styles = css`
@@ -39,7 +39,8 @@ export class NewCanvas extends LitElement {
 
   override connectedCallback() {
     super.connectedCallback();
-    this.drawingCanvas.redraw(); // Ensure canvas is drawn initially
+    // Ensure canvas is drawn
+    this.drawingCanvas.redraw();
     this.animationCanvas.startAnimationLoop();
   }
 
@@ -51,12 +52,10 @@ export class NewCanvas extends LitElement {
 
   override render() {
     return html`
-      <canvas id="newcanvas2">
-        <h1>TEST</h1>
-      </canvas>
-
-      <animation-canvas></animation-canvas>
-      <canvas-drawer></canvas-drawer>
+      <div>
+        <animation-canvas></animation-canvas>
+        <canvas-drawer> </canvas-drawer>
+      </div>
     `;
   }
 }

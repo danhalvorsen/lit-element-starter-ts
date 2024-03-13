@@ -4,21 +4,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { LitElement } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 let AnimationCanvas = class AnimationCanvas extends LitElement {
     // override createRenderRoot() {
     //   return this;
     // }
+    /**
+     *
+     */
+    constructor(drawingCanvas) {
+        super();
+        this.drawingCanvas = drawingCanvas;
+    }
     startAnimationLoop() {
         const animate = () => {
             // animation logic
             this.animationFrameId = window.requestAnimationFrame(animate);
+            console.log(`starting animation loop:${this.animationFrameId}`);
+            if (this.drawingCanvas !== null && this.drawingCanvas !== undefined) {
+                this.drawingCanvas.redraw();
+            }
         };
         animate();
     }
     stopAnimationLoop() {
         if (this.animationFrameId) {
+            console.log('stopping animation loop');
             window.cancelAnimationFrame(this.animationFrameId);
         }
     }
@@ -30,12 +42,19 @@ export { AnimationCanvas };
 // DrawingCanvas.ts
 let DrawingCanvas = class DrawingCanvas extends LitElement {
     // methods related to canvas drawing
-    createRenderRoot() {
-        return this;
+    render() {
+        return html ` <canvas id="newcanvas2"></canvas> `;
+    }
+    // override createRenderRoot() {
+    //   return this;
+    // }
+    firstUpdated() {
+        this.redraw();
     }
     redraw() {
         const canvas = this.shadowRoot?.getElementById('newcanvas2');
         if (canvas === null || canvas === undefined) {
+            console.log('no canvas element found');
             return;
         }
         const ctx = canvas.getContext('2d');
