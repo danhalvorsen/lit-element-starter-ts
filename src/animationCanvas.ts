@@ -1,5 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {LineCreator} from './creator';
+import {Point} from './types';
 
 @customElement('animation-canvas')
 export class AnimationCanvas extends LitElement {
@@ -41,6 +43,15 @@ export class AnimationCanvas extends LitElement {
 @customElement('canvas-drawer')
 export class DrawingCanvas extends LitElement {
   // methods related to canvas drawing
+  private lineCreator!: LineCreator;
+
+  /**
+   *
+   */
+  constructor() {
+    super();
+    this.lineCreator = new LineCreator();
+  }
 
   override render() {
     return html` <canvas id="newcanvas2"></canvas> `;
@@ -65,6 +76,10 @@ export class DrawingCanvas extends LitElement {
     const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d');
     if (!ctx) {
       return;
+    }
+
+    if (this.lineCreator) {
+      this.lineCreator.create(new Point(0, 0), new Point(100, 100), ctx);
     }
 
     ctx.fillStyle = 'rgb(200 0 0)';

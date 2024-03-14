@@ -10,6 +10,11 @@ export declare class AnimationCanvas extends LitElement {
     stopAnimationLoop(): void;
 }
 export declare class DrawingCanvas extends LitElement {
+    private lineCreator;
+    /**
+     *
+     */
+    constructor();
     render(): import("lit-html").TemplateResult<1>;
     firstUpdated(): void;
     redraw(): void;

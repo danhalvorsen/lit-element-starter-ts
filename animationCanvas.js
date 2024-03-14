@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { LineCreator } from './creator';
+import { Point } from './types';
 let AnimationCanvas = class AnimationCanvas extends LitElement {
     // override createRenderRoot() {
     //   return this;
@@ -41,7 +43,13 @@ AnimationCanvas = __decorate([
 export { AnimationCanvas };
 // DrawingCanvas.ts
 let DrawingCanvas = class DrawingCanvas extends LitElement {
-    // methods related to canvas drawing
+    /**
+     *
+     */
+    constructor() {
+        super();
+        this.lineCreator = new LineCreator();
+    }
     render() {
         return html ` <canvas id="newcanvas2"></canvas> `;
     }
@@ -60,6 +68,9 @@ let DrawingCanvas = class DrawingCanvas extends LitElement {
         const ctx = canvas.getContext('2d');
         if (!ctx) {
             return;
+        }
+        if (this.lineCreator) {
+            this.lineCreator.create(new Point(0, 0), new Point(100, 100), ctx);
         }
         ctx.fillStyle = 'rgb(200 0 0)';
         ctx.fillRect(10, 10, 50, 50);
