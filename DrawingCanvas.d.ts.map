@@ -1,0 +1,1 @@
+{"version":3,"file":"DrawingCanvas.d.ts","sourceRoot":"","sources":["src/DrawingCanvas.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,UAAU,EAAO,MAAM,KAAK,CAAC;AAQrC,qBACa,aAAc,SAAQ,UAAU;IAE3C,OAAO,CAAC,WAAW,CAAe;IAClC,OAAO,CAAC,gBAAgB,CAAoB;IAE5C;;OAEG;;IAOM,MAAM;IAMN,YAAY;IAGrB,MAAM,IAAI,IAAI;CAyBf"}

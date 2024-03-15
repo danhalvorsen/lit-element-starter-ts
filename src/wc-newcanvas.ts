@@ -1,7 +1,8 @@
 import {LitElement, html, css} from 'lit';
 import {customElement} from 'lit/decorators.js';
-import {AnimationCanvas, DrawingCanvas} from './animationCanvas';
-import {LineCreator} from './creator';
+import {AnimationCanvas} from './animationCanvas';
+import {DrawingCanvas} from './DrawingCanvas';
+import {LineCreator} from './visuals/LineCreator';
 
 @customElement('wc-newcanvas')
 export class NewCanvas extends LitElement {
@@ -10,7 +11,6 @@ export class NewCanvas extends LitElement {
   private animationFrameId: number | undefined;
   private canvasId = 'newcanvas2';
 
-
   /**
    *
    */
@@ -18,8 +18,6 @@ export class NewCanvas extends LitElement {
     super();
     this.drawingCanvas = new DrawingCanvas();
     this.animationCanvas = new AnimationCanvas(this.drawingCanvas);
-    
-    
   }
 
   static override readonly styles = css`

@@ -1,0 +1,1 @@
+{"version":3,"file":"LineBuilder.d.ts","sourceRoot":"","sources":["../src/visuals/LineBuilder.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,KAAK,EAAC,MAAM,UAAU,CAAC;AAE/B,qBAAa,WAAW;IACtB,EAAE,EAAE,KAAK,CAAmB;IAC5B,EAAE,EAAE,KAAK,CAAmB;IAC5B,MAAM,CAAC,EAAE,EAAE,KAAK,GAAG,IAAI;IAIvB,MAAM,CAAC,EAAE,EAAE,KAAK,GAAG,IAAI;CAIxB"}

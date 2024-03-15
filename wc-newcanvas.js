@@ -6,7 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { AnimationCanvas, DrawingCanvas } from './animationCanvas';
+import { AnimationCanvas } from './animationCanvas';
+import { DrawingCanvas } from './DrawingCanvas';
 let NewCanvas = class NewCanvas extends LitElement {
     /**
      *

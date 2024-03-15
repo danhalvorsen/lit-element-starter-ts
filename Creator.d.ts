@@ -1,14 +1,20 @@
 import { Point } from './types';
-interface Product {
+export interface Product {
     operation(): Product;
 }
-declare abstract class Creator {
+export declare abstract class Creator {
     abstract factoryMethod(): Product;
 }
-export declare class LineCreator extends Creator {
-    private lineProduct;
-    create(p0: Point, p1: Point, ctx: CanvasRenderingContext2D): Product;
-    factoryMethod(): Product;
+export declare class LineProduct implements Product {
+    ctx: CanvasRenderingContext2D;
+    p0: Point;
+    p1: Point;
+    /**
+     *
+     */
+    constructor(p0: Point, p1: Point, ctx: CanvasRenderingContext2D);
+    operation(): Product;
+    private arrow;
 }
 export declare class LineBuilder {
     p0: Point;
@@ -16,5 +22,4 @@ export declare class LineBuilder {
     WithP0(p0: Point): this;
     WithP1(p1: Point): this;
 }
-export {};
 //# sourceMappingURL=creator.d.ts.map

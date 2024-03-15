@@ -1,0 +1,1 @@
+{"version":3,"file":"RectagleCreator.d.ts","sourceRoot":"","sources":["src/RectagleCreator.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAC;AAE7C,qBAAa,gBAAiB,SAAQ,OAAO;IAC3B,aAAa,IAAI,OAAO;CAGzC;AAED,qBAAa,gBAAiB,YAAW,OAAO;IAC5C,SAAS,IAAI,OAAO;CAIvB"}
