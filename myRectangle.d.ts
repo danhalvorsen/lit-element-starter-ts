@@ -1,1 +1,0 @@
-//# sourceMappingURL=myRectangle.d.ts.map
