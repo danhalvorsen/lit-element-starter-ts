@@ -3,6 +3,9 @@
 /test/
 custom-elements.json
 # top level source
+/*.d.ts.map
+/*.js.map
+
 my-element.js
 my-element.js.map
 my-element.d.ts

@@ -3,6 +3,6 @@
     "**/*.d.ts": true,
     "**/*.js": true
   },
-  "cSpell.words": ["thecanvas"],
+  "cSpell.words": ["thecanvas", "xline", "yline"],
   "cmake.configureOnOpen": false
 }

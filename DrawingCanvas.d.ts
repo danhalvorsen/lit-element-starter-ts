@@ -2,6 +2,7 @@ import { LitElement } from 'lit';
 export declare class DrawingCanvas extends LitElement {
     private lineCreator;
     private rectangleCreator;
+    private createCartesianCoordinateSystem;
     /**
      *
      */

@@ -1,4 +1,10 @@
 import Vector2D from './vector2D';
+export type TPoint = [x: number, y: number];
+export type TLine = [p0: TPoint, p1: TPoint];
+export type TwoPoints = {
+    p0: Point;
+    p1: Point;
+};
 export type tCanvasRenderingContext2D = CanvasRenderingContext2D | undefined | null;
 export declare class Point {
     p: Vector2D;

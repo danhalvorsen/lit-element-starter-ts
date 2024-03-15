@@ -1,0 +1,3 @@
+export function makeColor(r: number, g: number, b: number, a: number) {
+  return `rgb(${r}, ${g}, ${b} / ${a})`;
+}
